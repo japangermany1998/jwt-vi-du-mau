@@ -10,7 +10,7 @@
 POST localhost:8080/register
 ```
 Xem kết quả trả ra trên POSTMAN
-![12](https://techmaster.vn/media/static/bm0tmgk51co4vclgfvu0/c41an4c51co7eb8irtog)
+![](https://techmaster.vn/media/static/bm0tmgk51co4vclgfvu0/c41an4c51co7eb8irtog)
 
 Code của đoạn đăng ký này:
 ```go
@@ -51,8 +51,8 @@ func Register(ctx *fiber.Ctx) error {
 POSt localhost:8080/user/login
 ```
 Và kết quả trả ra token đăng nhập và cookies được lưu
-![1](https://techmaster.vn/media/static/bm0tmgk51co4vclgfvu0/c41aqms51co7eb8irtp0)
-![5](https://techmaster.vn/media/static/bm0tmgk51co4vclgfvu0/c41auks51co7eb8irtpg)
+![](https://techmaster.vn/media/static/bm0tmgk51co4vclgfvu0/c41aqms51co7eb8irtp0)
+![](https://techmaster.vn/media/static/bm0tmgk51co4vclgfvu0/c41auks51co7eb8irtpg)
 
 Code của phần này:
 ```go
@@ -110,7 +110,7 @@ Thử một request lấy thông tin user đăng nhập
 ```
 GET  localhost:8080/user
 ```
-![6](https://techmaster.vn/media/static/bm0tmgk51co4vclgfvu0/c41b04451co7eb8irtq0)
+![](https://techmaster.vn/media/static/bm0tmgk51co4vclgfvu0/c41b04451co7eb8irtq0)
 
 Code của phần này:
 ```go
@@ -132,7 +132,7 @@ Logout bằng request sau:
 ```
 GET localhost:8080/logout
 ```
-![s](https://techmaster.vn/media/static/bm0tmgk51co4vclgfvu0/c41b1rs51co7eb8irtqg)
+![](https://techmaster.vn/media/static/bm0tmgk51co4vclgfvu0/c41b1rs51co7eb8irtqg)
 Code của phần này.
 ```go
 func Logout(ctx *fiber.Ctx) error {
@@ -200,5 +200,5 @@ func IsAuthenticated(ctx *fiber.Ctx) error {
 }
 ```
 Chạy thử một request /api trong trạng thái chưa đăng nhập:
-![t](https://techmaster.vn/media/static/bm0tmgk51co4vclgfvu0/c41b6j451co7eb8irtrg)
+![](https://techmaster.vn/media/static/bm0tmgk51co4vclgfvu0/c41b6j451co7eb8irtrg)
 
