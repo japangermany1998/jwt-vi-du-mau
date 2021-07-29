@@ -7,11 +7,9 @@ import (
 )
 
 func AllRoutes(app fiber.Router) {
-	app.Get("users", controller.GetUsers)
+	app.Get("/users", controller.GetUsers)
 
-	app.Get("user/{userId}", controller.GetUserById)
-
-	app.Post("/register", controller.Register)
+	app.Get("/user/{userId}", controller.GetUserById)
 
 	app.Put("/user/{id}", controller.UpdateUser)
 

@@ -9,9 +9,9 @@ import (
 
 func ConnectDatabase() (db *pg.DB) {
 	db = pg.Connect(&pg.Options{
-		Addr:     "192.168.0.106:5433",
+		Addr:     ":5432",
 		User:     "postgres",
-		Password: "1234",
+		Password: "123456",
 		Database: "postgres",
 	})
 

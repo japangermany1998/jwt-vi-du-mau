@@ -12,4 +12,7 @@ func AuthRoutes(app *fiber.App) {
 	app.Get("/user", controller.User)
 
 	app.Get("/logout", controller.Logout)
+
+	app.Post("/register", controller.Register)
+
 }

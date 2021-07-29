@@ -12,9 +12,9 @@ import (
 )
 
 func User(ctx *fiber.Ctx) error {
-	cookie := ctx.Cookies("jwt")
+	cookie := ctx.Cookies("jwt")	//cookie chứa value là token đăng nhập
 
-	issuer, _ := util.ParseJWT(cookie)
+	issuer, _ := util.ParseJWT(cookie)	//Parse token lấy thông tin đăng nhập
 
 	var user model.User
 
@@ -84,4 +84,34 @@ func Login(ctx *fiber.Ctx) error {
 	ctx.Cookie(&cookie)
 
 	return ctx.JSON(token)
+}
+
+func Register(ctx *fiber.Ctx) error {
+	var data map[string]string
+
+	if err := ctx.BodyParser(&data); err != nil {
+		log.Print(err)
+		return err
+	}
+
+	if data["password"] != data["passwordconfirm"] {
+		ctx.Status(400)
+		return ctx.JSON(map[string]string{
+			"message": "password doesn't match",
+		})
+	}
+
+	password, _ := bcrypt.GenerateFromPassword([]byte(data["password"]), 14)
+	user := model.User{
+		FirstName: data["first_name"],
+		LastName:  data["last_name"],
+		Email:     data["email"],
+		Password:  string(password),
+	}
+
+	_, err := DB.Model(&user).Insert()
+	if err != nil {
+		panic(err)
+	}
+	return ctx.JSON(user)
 }

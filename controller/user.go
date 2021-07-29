@@ -2,11 +2,9 @@ package controller
 
 import (
 	"jwt-vi-du-mau/model"
-	"log"
 
 	"github.com/go-pg/pg/v10"
 	"github.com/gofiber/fiber/v2"
-	"golang.org/x/crypto/bcrypt"
 )
 
 var DB *pg.DB
@@ -38,35 +36,6 @@ func GetUserById(ctx *fiber.Ctx) error {
 	return ctx.JSON(user)
 }
 
-func Register(ctx *fiber.Ctx) error {
-	var data map[string]string
-
-	if err := ctx.BodyParser(&data); err != nil {
-		log.Print(err)
-		return err
-	}
-
-	if data["password"] != data["passwordconfirm"] {
-		ctx.Status(400)
-		return ctx.JSON(map[string]string{
-			"message": "password doesn't match",
-		})
-	}
-
-	password, _ := bcrypt.GenerateFromPassword([]byte(data["password"]), 14)
-	user := model.User{
-		FirstName: data["first_name"],
-		LastName:  data["last_name"],
-		Email:     data["email"],
-		Password:  string(password),
-	}
-
-	_, err := DB.Model(&user).Insert()
-	if err != nil {
-		panic(err)
-	}
-	return ctx.JSON(user)
-}
 
 func UpdateUser(ctx *fiber.Ctx) error {
 	id := ctx.Params("id")

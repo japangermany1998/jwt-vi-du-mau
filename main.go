@@ -18,7 +18,7 @@ func main() {
 
 	controller.DB = db
 
-	app.Use(cors.New(cors.Config{
+	app.Use(cors.New(cors.Config{	
 		AllowCredentials: true,
 	}))
 

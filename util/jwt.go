@@ -8,7 +8,7 @@ import (
 
 const SecretKey = "secret"
 
-func GenerateJWT(issuer string) (string, error){
+func GenerateJWT(issuer string) (string, error){	
 	claims := jwt.NewWithClaims(jwt.SigningMethodHS256,jwt.StandardClaims{
 		Issuer: issuer,
 		ExpiresAt: time.Now().Add(time.Hour * 24).Unix(),
