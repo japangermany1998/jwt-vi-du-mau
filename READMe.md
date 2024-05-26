@@ -1,4 +1,12 @@
-Điều kiện ở đây là đã có đầy đủ server database để kết nối và POSTMAN để tạo request.
+## Điều kiện
+- Khởi tạo server postgres có giá trị sau:
+  ```
+	Addr:     ":5432",
+	User:     "postgres",
+	Password: "123456",
+	Database: "postgres",
+  ```
+- Tải [Postman](https://www.postman.com/downloads/) để chạy request
 
 ## Các bước chạy thử JWT.
 
